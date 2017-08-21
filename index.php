@@ -4,6 +4,23 @@ namespace bibliothek;
 
 include 'bootstrap.php';
 
+
+$xsl = new \DOMDocument();
+$xsl->load(__DIR__ . '/template/magix.xsl');
+
+$xml = new \DOMDocument();
+$xml->load(__DIR__ . '/data/data.xml');
+
+$xml->documentElement->setAttribute('foo', $_GET['foo']);
+
+$xslProcessor = new \XSLTProcessor();
+$xslProcessor->importStylesheet($xsl);
+echo $xslProcessor->transformToXml($xml);
+
+
+
+exit();
+
 use bibliothek\library\DomLoader;
 use bibliothek\library\Render;
 
@@ -13,11 +30,17 @@ if(!isset($_REQUEST['searchTerm'])){
     $searchTerm = $_REQUEST['searchTerm'];
 }
 
+if(!isset($_REQUEST['sort'])){
+    $sort = null;
+} else {
+    $sort = $_REQUEST['sort'];
+}
 
 $data = new DomLoader('./data/data.xml');
 $dataStorage = $data->getDocument();
-if($searchTerm) {
-    $dataStorageItems = simplexml_load_string($dataStorage->saveXML());
+$dataStorageItems = simplexml_load_string($dataStorage->saveXML());
+
+if($searchTerm && !empty($searchTerm)) {
     $dataStorageItems = $dataStorageItems->xpath('//text()[contains(., "'.$searchTerm.'")]/ancestor::book');
 }
 

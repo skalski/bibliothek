@@ -12,6 +12,12 @@
       <form method="post">
         <div class="input-group">
           <input type="text" name="searchTerm" class="form-control" placeholder="Search for..." value="[@searchTerm]">
+          <select class="form-control" name="sort">
+            <option value="asc|price">Preis aufsteigend</option>
+            <option value="desc|price">Preis absteigend</option>
+            <option value="asc|publish_date">Veröffentlichung aufsteigend</option>
+            <option value="desc|publish_date">Veröffentlichung absteigend</option>
+          </select>
         </div>
       </form>
     </div>
