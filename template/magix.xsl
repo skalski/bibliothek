@@ -58,8 +58,8 @@
                                         </xsl:otherwise>
                                     </xsl:choose>
                                 </select>
-                                <input type="text" name="minPrice" class="form-control" value="{$minPrice}" />
-                                <input type="text" name="maxPrice" class="form-control"  value="{$maxPrice}" />
+                                <input type="text" name="minPrice" class="form-control" value="{$minPrice}"/>
+                                <input type="text" name="maxPrice" class="form-control" value="{$maxPrice}"/>
                                 <input type="submit" style="position: absolute; left: -9999px"/>
                             </div>
                         </form>
@@ -67,7 +67,35 @@
                     <div class="col-md-1"></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3"></div>
+                    <div class="col-md-3">
+                        <form method="post" id="book">
+                            <div class="form-group">
+                                <label for="bookName">Title of Book</label>
+                                <input type="text" name="bookTitle" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookAuthor">Author</label>
+                                <input type="text" name="bookAuthor" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookGenre">Genre</label>
+                                <input type="text" name="bookGenre" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookPrice">Price without Currency</label>
+                                <input type="text" name="bookPrice" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookPublish_date">Published at</label>
+                                <input type="text" name="bookPublish_date" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookDescription">Description</label>
+                                <textarea name="bookDescription" class="form-control"></textarea>
+                            </div>
+                            <button class="btn btn-default" type="submit">Add it</button>
+                        </form>
+                    </div>
                     <div class="col-md-8" id="table">
                         <table class="table table-striped">
                             <thead>
@@ -116,7 +144,7 @@
                         integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
                         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
+                <script src="./assets/send.js"></script>
             </body>
         </html>
     </xsl:template>
