@@ -1,11 +1,4 @@
 <?php
-
-namespace bibliothek;
-
-include 'bootstrap.php';
-
-use bibliothek\library\DomLoader;
-
 $xsl = new \DOMDocument();
 $xsl->load(__DIR__ . '/template/magix.xsl');
 
