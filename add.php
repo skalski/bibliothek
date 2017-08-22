@@ -4,7 +4,7 @@ $xml->load(__DIR__ . '/data/data.xml');
 
 $original = new SimpleXMLElement($xml->saveXML());
 
-if(is_float($_REQUEST['bookPrice'])){
+if(!is_float($_REQUEST['bookPrice'])){
     echo "Price of Book is not a decimal Number - Abort!";
     exit;
 }
